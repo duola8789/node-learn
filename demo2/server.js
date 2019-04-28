@@ -4,14 +4,31 @@
 const http = require('http');
 
 module.exports = {
-  start() {
-    http.createServer((req, res) => {
-      console.log(req.url);
-      res.writeHead(200, {'Content-Type': 'text/plain'});
-      res.write('hello server');
-      res.end();
-    }).listen(8081, 'localhost');
-    console.log('Listening 8081...')
+  start(route, handle) {
+    const onRequest = (req, res) => {
+      const pathname = req.url;
+      if(~pathname.indexOf('/favicon')) {
+        return;
+      }
+
+      console.log("\nRequest for " + pathname + " received.", '---------------------' + new Date().toLocaleString());
+
+      let postData = '';
+      req.setEncoding('utf-8');
+      req.addListener('data', postDataChunk => {
+        postData += postDataChunk;
+        console.log("Received POST data chunk '"+
+          postDataChunk + "'.");
+      });
+
+      req.addListener('end', () => {
+        route(handle, pathname, res, postData);
+      });
+    };
+
+    http.createServer(onRequest).listen(8081, 'localhost');
+
+    console.log('Listening 8081...');
   }
 };
 
