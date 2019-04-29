@@ -13,17 +13,7 @@ module.exports = {
 
       console.log("\nRequest for " + pathname + " received.", '---------------------' + new Date().toLocaleString());
 
-      let postData = '';
-      req.setEncoding('utf-8');
-      req.addListener('data', postDataChunk => {
-        postData += postDataChunk;
-        console.log("Received POST data chunk '"+
-          postDataChunk + "'.");
-      });
-
-      req.addListener('end', () => {
-        route(handle, pathname, res, postData);
-      });
+      route(handle, pathname, res, req);
     };
 
     http.createServer(onRequest).listen(8081, 'localhost');

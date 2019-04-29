@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/duola8789/node-learning/issues"
   },
-  "homepage": "https://github.com/duola8789/node-learning#readme"
+  "homepage": "https://github.com/duola8789/node-learning#readme",
+  "dependencies": {
+    "formidable": "^1.2.1"
+  }
 }
