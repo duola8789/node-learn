@@ -3,7 +3,7 @@
  */
 const server = require('./server');
 const router = require('./router');
-const requestHandlers = require('./requestHanlders');
+const requestHandlers = require('./requestHandlers');
 
 const handle = {
   '/': requestHandlers.start,

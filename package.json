@@ -2,8 +2,9 @@
   "name": "node-learning",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "index.jds",
   "scripts": {
+    "start": "node"
   },
   "repository": {
     "type": "git",
