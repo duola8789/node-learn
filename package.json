@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/duola8789/node-learning#readme",
   "dependencies": {
-    "formidable": "^1.2.1"
+    "formidable": "^1.2.1",
+    "fs-extra": "^7.0.1"
   }
 }
