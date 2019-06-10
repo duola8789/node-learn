@@ -3,22 +3,19 @@
  */
 // 二分法查找
 const binarySearch = (list, target) => {
-  let low = 0,
-    high = list.length - 1,
-    middle = 0,
-    guess = 0;
-  while (low <= high) {
-    middle = Math.floor((low + high) / 2);
-    guess = list[middle];
-    if (guess === target) {
-      return middle;
-    } else if (guess > target) {
-      high = middle - 1;
+  let min = 0;
+  let max = list.length - 1;
+  while (min <= max) {
+    const middle = Math.floor((min + max) / 2);
+    if (list[middle] > target) {
+      max = middle - 1;
+    } else if (list[middle] < target) {
+      min = middle + 1
     } else {
-      low = middle + 1;
+      return middle;
     }
   }
-  return null;
+  return null
 };
 
-console.log(binarySearch([1, 3, 5, 7, 9], 5));
+console.log(binarySearch([1, 3, 5, 7, 9], 3));
