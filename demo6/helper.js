@@ -12,6 +12,14 @@ module.exports =  {
 
   // 使用 pako 解压缩数据
   unzip(gzipData) {
-    return JSON.parse(pako.inflate(gzipData, { to: 'string' }))
-  }
+    const unzipData = pako.inflate(gzipData, { to: 'string' })
+    let res = {}
+    try {
+      res = JSON.parse(unzipData)
+    } catch (e) {
+      const errMsg = 'unzip 解压出错'
+      throw new this.config.httpCodeHash.serverError.error(errMsg)
+    }
+    return res
+  },
 };
