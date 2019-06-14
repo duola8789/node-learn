@@ -5,3 +5,5 @@
 - demo3: fs模块和fs-extra模块
 - demo4: Koa
 - demo5: 算法图解
+- demo6: gzip and unzip
+- demo7: PDFKit
