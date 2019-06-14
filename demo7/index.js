@@ -19,56 +19,35 @@ const fonts = {
 // 创建实例
 const printer = new PdfPrinter(fonts);
 
+const FONT_COLOR = '#5E5E5E';
 const LINE_COLOR = '#EDEEF2';
 const TABLE_HEAD_COLOR = '#6E6E6E';
+
 
 // 全局样式
 const defaultStyle = {
   font: 'PingFangSC',
   fontSize: 10,
-  color: '#5E5E5E',
+  color: FONT_COLOR,
   lineHeight: 1.2
 };
 
 //  水印
 const watermark = {
-  text: '隐私信息管理平台',
+  text: '     隐私信息管理平台     ',
   color: '#EEE',
-  opacity: 0.1,
+  opacity: 0.5,
   bold: true,
-  size: 2,
 };
 
 // 预置样式
 const styles = {
-  tableTitle: {
-    fontSize: 20,
-    margin: [0, 20, 0, 10],
-    bold: true,
-  },
-  tableHeader: {
-    bold: true,
-    fontSize: 12,
-    color: TABLE_HEAD_COLOR
-  },
-  dangerLabel: {
-    lineHeight: 1,
-    color: '#F14D58',
-    background: '#F2E6E7'
-  },
-  dangerText: {
-    lineHeight: 1,
-    color: '#F14D58',
-  },
-  safeLabel: {
-    lineHeight: 1,
-    color: '#34BA3B',
-    background: '#E1F8E9'
-  },
-  safeText: {
-    lineHeight: 1,
-    color: '#34BA3B',
-  }
+  tableTitle: { fontSize: 20, margin: [0, 20, 0, 10], bold: true },
+  tableHeader: { bold: true, fontSize: 12, color: TABLE_HEAD_COLOR },
+  dangerLabel: { lineHeight: 1, color: '#F14D58', background: '#F2E6E7' },
+  dangerText: { lineHeight: 1, color: '#F14D58' },
+  safeLabel: { lineHeight: 1, color: '#34BA3B', background: '#E1F8E9' },
+  safeText: { lineHeight: 1, color: '#34BA3B', }
 };
 
 // 表格样式
@@ -210,8 +189,8 @@ const permissionDetailTable = {
   layout: tableLayout
 };
 
-
-let docDefinition = {
+// 参数对象
+const docDefinition = {
   content: [
     titleImage,
     titleIntro,
