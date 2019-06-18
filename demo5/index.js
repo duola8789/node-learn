@@ -2,20 +2,17 @@
  * Created by zh on 2019/5/8.
  */
 // 二分法查找
-const binarySearch = (list, target) => {
-  let min = 0;
-  let max = list.length - 1;
-  while (min <= max) {
-    const middle = Math.floor((min + max) / 2);
-    if (list[middle] > target) {
-      max = middle - 1;
-    } else if (list[middle] < target) {
-      min = middle + 1
-    } else {
-      return middle;
-    }
-  }
-  return null
-};
+const binarySearch = require('./binarySearch');
+const binarySearchResult = binarySearch([1, 3, 5, 7, 9], 5);
+// console.log(binarySearchResult);
 
-console.log(binarySearch([1, 3, 5, 7, 9], 3));
+const unSortArray = [5, -2, 1, -2, 3];
+
+// 快速排序
+const quickSort = require('./quickSort');
+
+// 选择排序
+const chooseSort = require('./chooseSort');
+
+const sortResult = chooseSort(unSortArray);
+console.log(sortResult);
