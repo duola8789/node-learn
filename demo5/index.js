@@ -2,26 +2,26 @@
  * Created by zh on 2019/5/8.
  */
 // 二分法查找
-const binarySearchRecursion = require('./binarySearch').binarySearchRecursion;
+const binarySearchRecursion = require('./ALG/binarySearch').binarySearchRecursion;
 const binarySearchResult = binarySearchRecursion([1, 3, 5, 7, 9], 3);
 console.log('二分查找 ', binarySearchResult);
 
 const unSortArray = [15, -12, 11, -2, 3];
 
 // 快速排序
-const quickSort = require('./quickSort');
+const quickSort = require('./ALG/quickSort');
 console.log('快速排序 ', quickSort([...unSortArray]));
 
 // 选择排序
-const chooseSort = require('./chooseSort');
+const chooseSort = require('./ALG/chooseSort');
 console.log('选择排序 ', chooseSort([...unSortArray]));
 
 // 最大子正方形
-const getMaxSquare = require('./maxSquare');
+const getMaxSquare = require('./ALG/maxSquare');
 console.log('最大子正方形 ', getMaxSquare(168, 64));
 
 // 迪科特斯拉算法
-const dijkstra = require('./dijkstra');
+const dijkstra = require('./ALG/dijkstra');
 // 用于存储节点、节点的邻居以及前往节点邻居的开销
 const graph = {
   start: {a: 5, b: 2},
@@ -48,3 +48,9 @@ const parents = {
 };
 const dijkstraResult = dijkstra(graph, costs, parents);
 console.log('迪科特斯拉算法\n', dijkstraResult);
+
+// 动态规划
+const dynamicPlanning = require('./ALG/dynamicPlanning');
+// 背包问题
+const { knapsackProblem } = dynamicPlanning;
+console.log('背包问题\n', knapsackProblem());
