@@ -49,8 +49,17 @@ const parents = {
 const dijkstraResult = dijkstra(graph, costs, parents);
 console.log('迪科特斯拉算法\n', dijkstraResult);
 
+// 贪婪算法
+const greedyAlgorithm = require('./ALG/greedyAlgorithm');
+// 用贪婪算法近似解决背包问题
+console.log('用贪婪算法近似解决背包问题\n', greedyAlgorithm.knapsackProblem());
+console.log('用贪婪算法近似解决旅行问题\n', greedyAlgorithm.travelProblem());
+
+
 // 动态规划
 const dynamicPlanning = require('./ALG/dynamicPlanning');
 // 背包问题
-const { knapsackProblem } = dynamicPlanning;
-console.log('背包问题\n', knapsackProblem());
+const { knapsackProblem, travelProblem, maxSubstring } = dynamicPlanning;
+console.log('动态规划解决背包问题\n', knapsackProblem());
+console.log('动态规划解决旅行问题\n', travelProblem());
+console.log('动态规划解决最大公共子串问题\n', maxSubstring('fish', 'hish'));
