@@ -117,12 +117,14 @@ const travelProblem = () => {
   return cell[spots.length - 1][allDays]
 };
 
+// 连续最大子串
 const maxSubstring = (string1, string2) => {
   let result = {
     value: 0,
-    string: ''
+    string: '',
   };
-  let cell = [];
+  const cell = [];
+
   for (let i = 0; i < string1.length; i++) {
     cell[i] = [];
     for (let j = 0; j < string2.length; j++) {
@@ -130,22 +132,42 @@ const maxSubstring = (string1, string2) => {
         const lastCell = cell[i - 1] && cell[i - 1][j - 1];
         cell[i][j] = {
           value: lastCell ? lastCell.value + 1 : 1,
-          string: lastCell ? lastCell.string + string1[i] : string1[i]
+          string: lastCell ? lastCell.string + string1[i] : string1[i],
+        };
+        if (cell[i][j].value > result.value) {
+          result.value = cell[i][j].value;
+          result.string = cell[i][j].string;
         }
       } else {
-        cell[i][j] = {value: 0, string: ''};
-      }
-      if (result.value < cell[i][j].value) {
-        result.value = cell[i][j].value;
-        result.string = cell[i][j].string;
+        cell[i][j] = {
+          value: 0,
+          string: ''
+        }
       }
     }
   }
   return result
 };
 
+// 连续子串最大和
+const maxSubSum = arr => {
+  let result = 0;
+  const cell = [];
+
+  for (let i = 0; i < arr.length; i++) {
+    cell[i] = [];
+    for (let j = i; j < arr.length; j++) {
+      cell[i][j] = arr[j] + ((cell[i-1] && cell[i-1][j-1]) ? cell[i-1][j-1] : 0);
+      result = Math.max(result, cell[i][j])
+    }
+  }
+
+  return result;
+};
+
 module.exports = {
   knapsackProblem,
   travelProblem,
   maxSubstring,
+  maxSubSum,
 };
