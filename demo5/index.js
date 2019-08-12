@@ -59,8 +59,9 @@ console.log('用贪婪算法近似解决旅行问题\n', greedyAlgorithm.travelP
 // 动态规划
 const dynamicPlanning = require('./ALG/dynamicPlanning');
 // 背包问题
-const { knapsackProblem, travelProblem, maxSubstring, maxSubSum } = dynamicPlanning;
+const { knapsackProblem, travelProblem, maxSubstring, maxSubSum, maxSubsequence } = dynamicPlanning;
 console.log('动态规划解决背包问题\n', knapsackProblem());
 console.log('动态规划解决旅行问题\n', travelProblem());
 console.log('动态规划解决最大公共子串问题\n', maxSubstring('fish', 'hish'));
 console.log('动态规划解决连续子串最大和\n', maxSubSum([-23, 17, -7, 11, -2, 1]));
+console.log('动态规划解决最大公共子序列问题\n', maxSubsequence('fish', 'fosh'));

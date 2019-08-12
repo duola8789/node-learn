@@ -157,8 +157,51 @@ const maxSubSum = arr => {
   for (let i = 0; i < arr.length; i++) {
     cell[i] = [];
     for (let j = i; j < arr.length; j++) {
-      cell[i][j] = arr[j] + ((cell[i-1] && cell[i-1][j-1]) ? cell[i-1][j-1] : 0);
+      cell[i][j] = arr[j] + ((cell[i - 1] && cell[i - 1][j - 1]) ? cell[i - 1][j - 1] : 0);
       result = Math.max(result, cell[i][j])
+    }
+  }
+
+  return result;
+};
+
+// 最长公共子序列
+const maxSubsequence = (string1, string2) => {
+  let result = {
+    value: 0,
+    string: '',
+  };
+
+  const cell = [];
+
+  for (let i = 0; i < string1.length; i++) {
+    cell[i] = [];
+    for (let j = 0; j < string2.length; j++) {
+      if (string1[i] === string2[j]) {
+        const lastCell = cell[i - 1] && cell[i - 1][j - 1];
+        cell[i][j] = {
+          value: lastCell ? (lastCell.value + 1) : 1,
+          string: lastCell ? (lastCell.string + string1[i]) : string1[i],
+        };
+        // 更新结果
+        if(cell[i][j].value > result.value) {
+          result = cell[i][j]
+        }
+      } else {
+        const lastRowCell = cell[i] && cell[i][j - 1] || { value: 0, string: '',};
+        const lastColCell = cell[i - 1] && cell[i - 1][j]|| { value: 0, string: '',};
+        if (lastRowCell.value > lastColCell.value) {
+          cell[i][j] = {
+            value: lastRowCell.value,
+            string: lastRowCell.string,
+          }
+        } else {
+          cell[i][j] = {
+            value: lastColCell.value,
+            string: lastColCell.string,
+          }
+        }
+      }
     }
   }
 
@@ -170,4 +213,5 @@ module.exports = {
   travelProblem,
   maxSubstring,
   maxSubSum,
+  maxSubsequence,
 };
