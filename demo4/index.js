@@ -1,14 +1,15 @@
 /**
  * Created By zh on 2019-04-30
  */
+const path = require('path');
+
 const Koa = require('koa');
 const fse = require('fs-extra');
-const convert = require('koa-convert');
-const loggerGenerator = require('./logger-generator');
-const loggerAsync = require('./logger-async');
+const logger = require('./utils/simple-logger');
 
 const app = new Koa();
 
+// 时间打点
 app.use(async (ctx, next) => {
   console.log('started');
   const start = Date.now();
@@ -17,12 +18,9 @@ app.use(async (ctx, next) => {
   ctx.set('X-ResponseTime', time)
 });
 
-app.use(convert(loggerGenerator()));
-app.use(loggerAsync());
+// 控制台输出
+app.use(logger());
 
-app.use(async (ctx) => {
-  ctx.body = await fse.readFile('../demo3/test.txt', 'utf-8');
-});
 
 app.listen(8080, () => {
   console.log('app is listening 8080...');

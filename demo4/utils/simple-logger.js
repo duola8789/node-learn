@@ -2,7 +2,7 @@
  * Created By zh on 2019-04-30
  */
 function log(ctx) {
-  console.log(2, ctx.method, ctx.header.host + ctx.url);
+  console.log(ctx.method, ctx.header.host + ctx.url);
 }
 
 module.exports = function () {
