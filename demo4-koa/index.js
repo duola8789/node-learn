@@ -1,17 +1,13 @@
 /**
  * Created By zh on 2019-04-30
  */
-const path = require('path');
-
 const Koa = require('koa');
-const fse = require('fs-extra');
 const logger = require('./utils/simple-logger');
 
 const app = new Koa();
 
 // 时间打点
 app.use(async (ctx, next) => {
-  console.log('started');
   const start = Date.now();
   await next();
   const time = (Date.now() - start) + 'ms';
@@ -21,7 +17,12 @@ app.use(async (ctx, next) => {
 // 控制台输出
 app.use(logger());
 
+app.use(ctx => {
+  ctx.body = 'Hello Koa';
+});
 
-app.listen(8080, () => {
-  console.log('app is listening 8080...');
+
+
+app.listen(8888, () => {
+  console.log('Koa is listening 8888...');
 });
