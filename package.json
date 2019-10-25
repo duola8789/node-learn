@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.jds",
   "scripts": {
-    "start": "node"
+    "start": "node",
+    "server": "nodemon demo4-koa/index.js"
   },
   "repository": {
     "type": "git",
@@ -17,10 +18,12 @@
   },
   "homepage": "https://github.com/duola8789/node-learning#readme",
   "dependencies": {
+    "@koa/cors": "^2.2.3",
     "formidable": "^1.2.1",
     "fs-extra": "^7.0.1",
     "i": "^0.3.6",
     "koa": "^2.7.0",
+    "koa-router": "^7.4.0",
     "pako": "^1.0.10",
     "pdfkit": "^0.10.0",
     "pdfmake": "^0.1.57"

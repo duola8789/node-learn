@@ -3,8 +3,18 @@
  */
 const Koa = require('koa');
 const logger = require('./utils/simple-logger');
+const routers = require('./routes/index');
+const cors = require('@koa/cors');
 
+// KOA
 const app = new Koa();
+
+// 跨域，注意跨域中间件要在路由前面加载
+app.use(cors());
+
+// 加载路由
+app.use(routers.routes());
+
 
 // 时间打点
 app.use(async (ctx, next) => {
@@ -20,8 +30,6 @@ app.use(logger());
 app.use(ctx => {
   ctx.body = 'Hello Koa';
 });
-
-
 
 app.listen(8888, () => {
   console.log('Koa is listening 8888...');
