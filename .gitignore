@@ -16,3 +16,8 @@ yarn-error.log*
 
 /demo2/temp
 *.pdf
+
+/demo9-tinyPNG/source
+/demo9-tinyPNG/dist
+/demo10-imageMin/source
+/demo10-imageMin/dist

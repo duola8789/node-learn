@@ -8,3 +8,5 @@
 - demo6: PDFKit
 - demo7: 训练营
 - demo8: 二叉树遍历
+- demo9: 图片压缩(tinyPNG)
+- demo10: 图片压缩(imageMin)
