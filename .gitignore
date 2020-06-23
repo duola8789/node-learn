@@ -21,3 +21,5 @@ yarn-error.log*
 /demo9-tinyPNG/dist
 /demo10-imageMin/source
 /demo10-imageMin/dist
+/demo11-web/dist
+/demo11-web/source
